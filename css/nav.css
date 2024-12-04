@@ -13,12 +13,14 @@ body{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    
 }
 
 /* add some padding back to rest of page */
 
 main{
     padding: 2vw;
+    
 }
 
 
@@ -34,7 +36,7 @@ main{
 }
 
 .navbar {
-    background: linear-gradient(270deg, #6e40bc, #5c4782, #5C2CB0); 
+    background: linear-gradient(270deg, #6e40bc, #9626c6, #5C2CB0); 
     background-size: 300% 300%; 
     animation: gradientMove 10s ease infinite; 
     display: flex;
@@ -54,7 +56,7 @@ main{
 }
 
 .logo img{
-    height: 5vw;
+    min-width: 150px;
     width: 5vw;
 }
 
@@ -74,11 +76,6 @@ main{
 
 
 
-/*  
- style all a tags in header 
- and then on hover
-*/
-
 .navbar a{
     color: whitesmoke;
     
@@ -95,20 +92,104 @@ main{
     outline: none;
 }
 
+.navbar-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: #333;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
 
-/* 
-media query for non-mobile nav bar
-min-width set to width of nav elements 
-such that no text wraps 
-*/
+/* hamburger */
+
+.menu-checkbox {
+    display: none;
+}
+
+
+.hamburger {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+
+
+.hamburger-icon {
+    display: block;
+    width: 30px;
+    height: 25px;
+}
+
+.hamburger-icon-open {
+    display: none; 
+    width: 30px;
+    height: 25px;
+}
+
+
+.menu-checkbox:checked + .hamburger .hamburger-icon {
+    display: none;
+}
+
+.menu-checkbox:checked + .hamburger .hamburger-icon-open {
+    display: block;
+}
+
+
+.navbar-links {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #333;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    z-index: 1;
+}
+
+
+.menu-checkbox:checked ~ .navbar-links {
+    display: flex;
+}
+
+
+
+
+@media screen and (min-width: 60rem) {
+ 
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .navbar-links {
+        position: static;
+        display: flex;
+        align-items: flex-end !important;
+        height: auto;
+        background-color: transparent;
+    }
+
+  
+    .hamburger {
+        display: none;
+    }
+}
+
 
 @media screen and (min-width: 60rem){
 
 
-/* .navbar-links {
-    display: flex;
-    justify-content: space-between;
-} */
  
 .navbar{
     flex-direction: row;
@@ -125,3 +206,4 @@ such that no text wraps
 }
 
 }
+
